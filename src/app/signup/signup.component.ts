@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../user';
 
 @Component({
@@ -8,12 +9,17 @@ import { User } from '../user';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
 
   value = ""
-  
+  changeRoute(){
+    this.router.navigate(['login']);
+    console.log("clicked")
+  }
 
 }

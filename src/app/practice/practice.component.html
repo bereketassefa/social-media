@@ -1,0 +1,18 @@
+<p  [class] = "status ? 'red' : 'green'">practice works!</p>
+<p [ngClass]="classes">motherfucker</p>
+<!-- <button (click) ="logvalue(mother)">change</button> -->
+<input type="text" title="mother" #mother [(ngModel)]="formvalue">
+
+{{formvalue}}
+
+
+<p *ngFor="let ind of values ; last  as i"> {{i}} --- {{ind}}</p>
+
+
+<p>{{users | json}}</p>
+
+<button (click)="newfun()">add user</button>
+
+
+<h1>____________________</h1>
+<p>{{ posts | json}}</p>

@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class=" main">
+    <div class="left">
+        <img src="./../../assets/facebook.svg" alt="" srcset="">
+        <!-- <h2 style="padding-left: 22px;" >Recent Login </h2> -->
+        
+    </div>
+    <!-- <form action=""> -->
+    <div class="right form-group"> 
+        <p >{{alert }}</p>
+        <input type="text" title="s" [(ngModel)]="username">
+        <input type="password" name="" id="" title="h" [(ngModel)]="password">
+        <input type="submit" (click)="logUser()" value="Login" style="background-color: #1877f2;color:white;font-weight:bold;font-size:20px">
+        <hr/>
+        <input type="submit" (click)="changeRoute()" value="create new account" style="background-color: #42b72a;color:white;font-weight:bold;font-size:20px">
+    </div>
+<!-- </form> -->
+</div>
