@@ -1,8 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient, HttpParams  , HttpHeaders} from '@angular/common/http';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { catchError, map, tap  } from 'rxjs/operators';
+import { AuthServiceService } from '../services/auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +11,18 @@ import { catchError, map, tap  } from 'rxjs/operators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+  showLoader: boolean = false;
   Message: any;
   alert: any;
+  newObj : {message: string} | any = {message : ""}
   
   username = ""
   password = ""
 
   constructor(
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private authService: AuthServiceService
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +35,7 @@ export class LoginComponent implements OnInit {
   }
 
   logUser(){
+    this.showLoader = true;
     if(this.checkEmpty(this.username) && this.checkEmpty(this.password)){
       let body = new URLSearchParams();
       body.set('userName', this.username);
@@ -42,26 +46,14 @@ export class LoginComponent implements OnInit {
 
 
       let data = this.http.post("http://localhost:8080/public/login" ,body.toString() ,op)
-      .pipe(
-        catchError((error ) => {
-          if (error.status == 404){
-            this.alert = "Invalid Credential";
-          }
-          return of([]);
-        } 
-      )
-      );
-      data.subscribe(
-        data => {
-          this.Message = data ; 
-            console.log(this.Message.message)
-            if(!(this.Message.message == undefined)) {
-              this.router.navigate(['signup']);
-              localStorage.setItem('token', this.Message.token);
-            }
-          }
-
-    )
+      .toPromise().then(value => {
+        this.newObj = value;
+        if(this.newObj.message !== undefined){
+          localStorage.setItem('token' , this.newObj.message);
+          this.authService.login()
+          this.router.navigate(['home'])
+        }
+      }).catch(err => this.alert = err.status === 404 ? 'Invalid Credential' : 'Internal Server Error').then(anothererr => console.log(anothererr))
     
       
     }

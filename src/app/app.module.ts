@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import { PracticeComponent } from './practice/practice.component';
 import { UserServiceService } from './user-service.service';
 import {HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     SignupComponent,
     LoginComponent,
-    PracticeComponent
+    PracticeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

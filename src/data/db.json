@@ -33,11 +33,70 @@
       "postId": 1
     }
   ],
-  "public": {
-    "login": [
-      {
-        "name": "typicode"
-      }
-    ]
-  }
+  "public": [
+    {
+      "appUser": {
+        "firstName": "string",
+        "id": 0,
+        "lastName": "string",
+        "password": "string",
+        "phoneNumber": "string",
+        "token": "string",
+        "userName": "string"
+      },
+      "content": "string",
+      "dateCreated": "2022-12-15T07:56:05.461Z",
+      "id": 0,
+      "postComments": [
+        {
+          "appUser": {
+            "firstName": "string",
+            "id": 0,
+            "lastName": "string",
+            "password": "string",
+            "phoneNumber": "string",
+            "token": "string",
+            "userName": "string"
+          },
+          "content": "string",
+          "dateCreated": "2022-12-15T07:56:05.462Z",
+          "id": 0,
+          "post": {
+            "content": "string",
+            "dateCreated": "yyyy-MM-dd HH:mm:ss",
+            "id": 0,
+            "ppId": "string"
+          }
+        }
+      ],
+      "postImages": [
+        {
+          "id": 0,
+          "imageUrl": "string"
+        }
+      ],
+      "postLikes": [
+        {
+          "appUser": {
+            "firstName": "string",
+            "id": 0,
+            "lastName": "string",
+            "password": "string",
+            "phoneNumber": "string",
+            "token": "string",
+            "userName": "string"
+          },
+          "id": 0,
+          "post": {
+            "content": "string",
+            "dateCreated": "yyyy-MM-dd HH:mm:ss",
+            "id": 0,
+            "ppId": "string"
+          }
+        }
+      ],
+      "ppId": "string"
+    }
+   
+  ]
 }

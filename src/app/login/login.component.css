@@ -21,7 +21,7 @@ body {
   flex-direction: column;
   background-color: white;
   min-width: 350px;
-  height: 320px;
+  height: 350px;
   padding: 10px 15px;
   border-radius: 10px;
 }
@@ -31,4 +31,9 @@ body {
   padding: 10px;
   border-radius: 5px;
   border: 0;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+  /* background-color: red; */
 }
