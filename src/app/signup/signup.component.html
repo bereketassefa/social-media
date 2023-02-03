@@ -1,33 +1,103 @@
-<div class=" main">
-    <div class="left">
-        <img src="./../../assets/facebook.svg" width="190px" alt="" srcset="">
-        <h2 style="padding-left: 22px;" > Sign Up </h2>
-       {{firstName}}
-       {{lastName}}
-       {{phoneNumber}}
-       {{email}}
-       {{password}}
+<div class="main">
+  <div class="left">
+    <img src="./../../assets/facebook.svg" width="190px" alt="" srcset="" />
+    <h2 style="padding-left: 22px">Sign Up</h2>
+  </div>
+  <form action="" #refer="ngForm" (ngSubmit)="showconsole()">
+    <div class="right form-group">
+      <input
+        type="text"
+        title="s"
+        name="firstName"
+        #first="ngModel"
+        [(ngModel)]="firstName"
+        placeholder="First Name"
+        pattern="[a-zA-Z]{4,}"
+        required
+      />
+      <br />
+      <small class="text-danger" [class.d-none]="first.valid || first.untouched"
+        >Invalid or no user name!</small
+      >
+      <input
+        type="text"
+        title="s"
+        #last="ngModel"
+        name="lastname"
+        [(ngModel)]="lastName"
+        placeholder="Last Name"
+        pattern="[a-zA-Z]{4,}"
+        required
+      />
+      <br />
+      <small class="text-danger" [class.d-none]="last.valid || last.untouched"
+        >Invalid or no last name!</small
+      >
+      <input
+        type="text"
+        title="s"
+        #phone="ngModel"
+        name="phonenumber"
+        [(ngModel)]="phoneNumber"
+        placeholder="Phone Number"
+        pattern="0[7/9][0-9]{8}"
+        required
+      />
+      <br />
+      <small class="text-danger" [class.d-none]="phone.valid || phone.untouched"
+        >Phone number is required!</small
+      >
+      <input
+        type="email"
+        name="email"
+        #emaill="ngModel"
+        [(ngModel)]="email"
+        id=""
+        placeholder="Email"
+        pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+        required
+      />
+      <br />
+      <small
+        class="text-danger"
+        [class.d-none]="emaill.valid || emaill.untouched"
+        >Envalid or no email!</small
+      >
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        pattern=""
+        #passwordd="ngModel"
+        title="h"
+        placeholder="Password"
+        required
+      />
+      <br />
+      <small
+        class="text-danger"
+        [class.d-none]="passwordd.valid || passwordd.untouched"
+        >Password is required!</small
+      >
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="refer.form.invalid"
+      >
+        Log in
+      </button>
+      <hr />
+      <input
+        type="submit"
+        (click)="changeRoute()"
+        value="Login"
+        style="
+          background-color: #42b72a;
+          color: white;
+          font-weight: bold;
+          font-size: 20px;
+        "
+      />
     </div>
-    <!-- <form action=""> -->
-    <div class="right form-group"> 
-        
-        <input type="text" title="s" [(ngModel)]="firstName" placeholder="First Name">
-        <input type="text" title="s" [(ngModel)]="lastName" placeholder="Last Name">
-        <input type="text" title="s" [(ngModel)]="phoneNumber" placeholder="Phone Number">
-        <input type="email" name="" [(ngModel)]="email" id="" placeholder="Email">
-        <input type="password" [(ngModel)]="password" name="" id="" title="h" placeholder="Password">
-        <!-- <label for="" style="padding-left: 20px;">Gender</label> -->
-        <!-- <div class="form-check" style="padding-left:40px">
-            <input title="k" [(ngModel)]="male"  type="radio" class="form-check-input" id="radio1" name="optradio" value="Male" checked>Male
-            <label class="form-check-label" for="radio1"></label>
-          </div>
-          <div class="form-check" style="padding-left:40px">
-            <input title="k" [(ngModel)]="female" type="radio" class="form-check-input" id="radio2" name="optradio" value="Female">Female
-            <label class="form-check-label" for="radio2"></label>
-          </div> -->
-        <input type="submit" (click)="signUser()" value="submit" style="background-color: #1877f2;color:white;font-weight:bold;font-size:20px">
-        <hr/>
-        <input type="submit" (click)="changeRoute()" value="Login" style="background-color: #42b72a;color:white;font-weight:bold;font-size:20px">
-    </div>
-<!-- </form> -->
+  </form>
 </div>

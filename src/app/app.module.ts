@@ -10,7 +10,19 @@ import { PracticeComponent } from './practice/practice.component';
 import { UserServiceService } from './user-service.service';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FormComponent } from './components/form/form.component';
+import { UploaderComponent } from './Image-uploads/Drag and Drop/uploader/uploader.component';
+import { UploadTaskComponent} from './Image-uploads/Drag and Drop/upload-task/upload-task.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { CommonModule } from '@angular/common';
+import { DropzoneDirective } from './Image-uploads/Drag and Drop/dropzone.directive';
+import { DndDirective } from './components/image-uploader/dnd.directive';
+import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +30,25 @@ import { HomeComponent } from './home/home.component';
     SignupComponent,
     LoginComponent,
     PracticeComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    SidebarComponent,
+    FormComponent,
+    UploaderComponent,
+    UploadTaskComponent,
+    DropzoneDirective,
+    DndDirective,
+    ImageUploaderComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
+    CommonModule
   ],
   providers: [UserServiceService],
   bootstrap: [AppComponent]

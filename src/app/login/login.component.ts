@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       };
 
 
-      let data = this.http.post("http://localhost:8080/public/login" ,body.toString() ,op)
+      let data = this.http.post("http://localhost:8001/" ,body.toString() ,op)
       .toPromise().then(value => {
         this.newObj = value;
         if(this.newObj.message !== undefined){
@@ -53,9 +53,10 @@ export class LoginComponent implements OnInit {
           this.authService.login()
           this.router.navigate(['home'])
         }
-      }).catch(err => this.alert = err.status === 404 ? 'Invalid Credential' : 'Internal Server Error').then(anothererr => console.log(anothererr))
-    
-      
+      }).catch(err => {
+        this.alert = err.status === 404 ? 'Invalid Credential' : 'Internal Server Error';
+        this.showLoader = false;
+      }).then(anothererr => console.log(anothererr))
     }
   }
   

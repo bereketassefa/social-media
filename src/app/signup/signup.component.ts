@@ -38,6 +38,10 @@ export class SignupComponent implements OnInit {
     else return true;
   }
 
+  showconsole(){
+    console.log("form logged")
+  }
+
 
   signUser(){
     // console.log("first and last name" ,this.firstName + this.lastName) 
@@ -45,31 +49,34 @@ export class SignupComponent implements OnInit {
     // console.log("email" , this.email) 
     // console.log("phone no" , this.phoneNumber)
     // if(this.checkEmpty(this.firstName + this.lastName) && this.checkEmpty(this.password) && this.checkEmpty(this.email) && this.checkEmpty(this.phoneNumber) ){
-      console.log("button clicked")
-      let body = new URLSearchParams();
-      // body.set('firstName', this.firstName + this.lastName);
-      // body.set('lastName', this.email);
-      // body.set('password', this.password);
-      // body.set('phoneNumber', this.phoneNumber);
-      body.set("firstName", "firstnamelastname",)
-      body.set("lastName", "email@email.com",)
-      body.set("password", "berket",)
-      body.set("phoneNumber", "0989898989")
+      // console.log("button clicked")
+      // let body = new URLSearchParams();
+      // body.set("firstName", "firstnamelastname",)
+      // body.set("lastName", "email@email.com",)
+      // body.set("password", "berket",)
+      // body.set("phoneNumber", "0989898989")
       let op = {
         // headers: new HttpHeaders().set('Content-Type', 'application/json')
         headers: new HttpHeaders().set('Content-Type', 'application/json')
       };
 
 
-      let data = this.http.post("http://localhost:8080/public" ,
+      let data = this.http.post("http://localhost:8001/public" ,
       
       {
-        userName:"firstName",
-        lastName: "email@gmail.com",
-        password: "password",
-        phoneNumber : "0909090909"
-        
+        firstName: this.firstName,
+        lastName: this.lastName,
+        userName: this.email, 
+        password: this.password,
+        phoneNumber: this.phoneNumber
       }
+      // {
+      //   "firstName":"bereket",
+      //   "lastName": "assef",
+      //   "userName": "assefa@gmail.com",
+      //   "password":"passcode",
+      //   "phoneNumber" : "0909090909"
+      // }
       ,op)
       .pipe(
         catchError((error ) => {

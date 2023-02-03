@@ -1,0 +1,28 @@
+.all {
+  height: calc(100vh - 60px);
+  /* background-color: lightblue; */
+  width: 100%;
+  padding-top: 20px;
+}
+.each {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  width: 100%;
+  /* background-color: lightcyan; */
+  align-items: center;
+  align-content: center;
+}
+
+.each:hover {
+  background-color: rgb(240, 240, 240);
+  transition: 0.2s ease-in-out;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid black;
+  margin: 0 20px;
+}

@@ -1,0 +1,49 @@
+.postHeader {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+  /* align-items: center;
+  align-content: center; */
+
+  padding: 10px;
+}
+.left {
+  display: flex;
+  flex-direction: row;
+}
+.inlinebutton {
+  background-color: transparent;
+  color: blue;
+  display: inline;
+  border: 0;
+  padding: 0 10px;
+}
+.profileDetailHolder {
+  /* margin-top: 10px; */
+}
+.profile > img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 1px solid black;
+}
+.clear {
+  background-color: 0;
+  border: 0;
+  padding: 0;
+}
+.postText {
+  padding: 15px;
+}
+.para {
+  --max-lines: none;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+}
+.eachpost {
+  margin: 25px 0;
+}

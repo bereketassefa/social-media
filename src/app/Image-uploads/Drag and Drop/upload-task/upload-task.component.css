@@ -1,0 +1,38 @@
+.primary-green-color {
+  background-color: #56a79a;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* margin-bottom: 150px; */
+}
+
+.ele {
+  margin-left: 30px;
+  flex-grow: 1;
+  height: 0px;
+  width: 100%;
+}
+
+.card {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.close-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 99;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+}

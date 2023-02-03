@@ -1,0 +1,13 @@
+.special {
+  width: 300px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.special:hover {
+  background-color: rgb(216, 216, 216);
+}
+app-image-uploader {
+  height: 100%;
+}

@@ -1,0 +1,11 @@
+<div class="special" appDnd dropzone (dropped)="onDrop($event)">
+  <i class="fa fa-cloud-upload"></i>
+  <h6>Drag and drop property image or video here</h6>
+</div>
+<div *ngFor="let file of files">
+  <upload-task
+    [file]="file"
+    (imageUploadedEvent)="onImageUploadedEvent($event)"
+  >
+  </upload-task>
+</div>

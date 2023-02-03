@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { UserServiceService } from '../user-service.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UserServiceService } from 'src/app/user-service.service';
 
 @Component({
-  selector: 'app-practice',
-  templateUrl: './practice.component.html',
-  styleUrls: ['./practice.component.css']
+  selector: 'app-image-uploader',
+  templateUrl: './image-uploader.component.html',
+  styleUrls: ['./image-uploader.component.css']
 })
-export class PracticeComponent implements OnInit {
+export class ImageUploaderComponent implements OnInit {
 
+  @Output() newURL = new EventEmitter<string>();
+  @Output() showLoader = new EventEmitter<string>();
   users : {} = [];
   files: File[] = [];
   selectedFiles?: FileList;
+  // imageURLs: String[] = []
+
 
   
   constructor(private user: UserServiceService){
@@ -43,7 +47,7 @@ export class PracticeComponent implements OnInit {
   }
 
   onDrop(files: any) {
-    console.log("file droped");
+    this.showLoader.emit()
     for (let i = 0; i < files.length; i++) {
       let item = files.item(i);
       if (item)
@@ -63,9 +67,12 @@ export class PracticeComponent implements OnInit {
       // console.log(this.selectedFiles.item(i));
     }
   }
+  emit(){
 
+    this.newURL.emit("urls");
+  }
 
-  onImageUploadedEvent(event: String[]) {
+  onImageUploadedEvent(event: any[]) {
     // debugger
     let urls = null;
     var index = 0;
@@ -73,7 +80,10 @@ export class PracticeComponent implements OnInit {
       urls = event[i];
     }
     if (urls) {
-      // this.property.propertyImagesList.push({ id: null, url: urls, isPrimary: false });
+      
+      
+        this.newURL.emit(urls);
+      
       console.log(urls)
     }
     // debugger

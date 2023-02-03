@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <h1>Angular form</h1>
+  <!-- {{ refer.value | json }} -->
+  <form action="" #refer="ngForm">
+    <div class="form-group">
+      <label for="">name</label>
+      {{ name.valid }}{{ name.touched }}
+      <input
+        title="d"
+        type="text"
+        #name="ngModel"
+        name="name"
+        required
+        id=""
+        [ngModel]="newuser.name"
+      />
+      <small [class.d-none]="name.valid || name.untouched"
+        >name is required</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="">email</label>
+      <input
+        title="d"
+        type="email"
+        name="email"
+        id=""
+        [class.redborder]="email.invalid && email.touched"
+        #email="ngModel"
+        required="true"
+        [ngModel]="newuser.email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="">Phone number</label>
+      <input
+        title="d"
+        type="tel"
+        name="phoneno"
+        id=""
+        required
+        #phone="ngModel"
+        pattern="0[7/9][0-9]{8}"
+        [ngModel]="newuser.phoneno"
+      />
+      <!-- {{ phone.errors | json }} -->
+      <!-- <div *ngIf="phone.errors && (phone.invalid || phone.touched )">
+          <small class="text-danger" *ngIf="phone.errors.">phone no is required</small>
+          <small class="text-danger" *ngIf="phone.errors.pattern">phone no mismatch</small>
+        </div> -->
+    </div>
+    <div class="form-group">
+      <select
+        title="s"
+        name="interest"
+        id=""
+        class="custom-select"
+        [ngModel]="newuser.interest"
+      >
+        <option selected>I am interested in</option>
+        <option *ngFor="let topic of topics">{{ topic }}</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="">time Preference</label>
+      <div class="form-check">
+        <input
+          title="s"
+          type="radio"
+          name="timePreference"
+          id=""
+          class="form-check-input"
+          value="morning"
+          [ngModel]="newuser.timePreference"
+        />
+        <label for="" class="form-check-label">Morning</label>
+      </div>
+      <div class="form-check">
+        <input
+          title="s"
+          type="radio"
+          name="timePreference"
+          id=""
+          class="form-check-input"
+          value="evening"
+          [ngModel]="newuser.timePreference"
+        />
+        <label for="" class="form-check-label">Evening</label>
+      </div>
+    </div>
+    <div class="form-check mb-3">
+      <input
+        title="s"
+        type="checkbox"
+        name="sendpromo"
+        id=""
+        [ngModel]="newuser.sendPromo"
+      />
+      <label for="" class="form-check-label">send me promotion offer</label>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="refer.form.invalid"
+    >
+      submit form
+    </button>
+  </form>
+</div>

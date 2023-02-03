@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="ele">
+    <div class="d-flex align-items-center">
+      <div *ngIf="percentage | async as pct">
+        <!-- <div *ngIf="pct == 100">
+          <p>image uploaded sucessfully</p>
+        </div> -->
+      </div>
+    </div>
+    <!-- <div class="card img-fluid" style="width:200px;height: 140px">
+      <div *ngIf="imageUrl != null">
+        <div *ngIf="downloadURL as url">
+          <img class="card-img-top" [src]="url" alt="Card image" style="width:100%" />   
+        </div>
+      </div>
+      <div class="card-body">
+      </div> 
+    </div> -->
+    <div class="hidden" *ngIf="snapshot | async as snap"></div>
+  </div>
+</div>
