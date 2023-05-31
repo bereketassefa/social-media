@@ -47,3 +47,19 @@
 .eachpost {
   margin: 25px 0;
 }
+.seemore {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.para {
+  position: relative;
+}
+button {
+  border: 0;
+  background-color: antiquewhite;
+}
+
+.col-6 {
+  margin-top: 10px;
+}

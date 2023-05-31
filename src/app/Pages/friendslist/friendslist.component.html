@@ -1,0 +1,34 @@
+<app-navbar></app-navbar>
+<div class="h-[60px] w-full"></div>
+<div class="w-full h-[calc(100vh-60px)] grid grid-cols-5">
+  <div class="w-full h-full col-span-2 bg-white md:col-span-1">
+    <div class="top-0 left-0 w-full h-full bg-white pt-3">
+      <h3 class="px-2 text-sm mx-1 pb-0 mb-0 text-gray-500">Friends</h3>
+      <h3 class="px-2 pb-3 text-black">All friends</h3>
+      <div class="w-[90%] h-[1px] mx-auto bg-gray-500 mb-2"></div>
+
+      <div
+        class="flex items-center gap-x-2 mx-2 hover:cursor-pointer hover:bg-gray-100 rounded-lg px-1 py-2"
+      >
+        <img
+          class="object-cover w-12 h-12 rounded-full"
+          src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=faceare&facepad=3&w=688&h=688&q=100"
+          alt=""
+        />
+
+        <div class="">
+          <h1 class="text-xl font-semibold text-gray-700 capitalize m-0 p-0">
+            Mia John
+          </h1>
+
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">
+            12 mutual friends
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-full h-full col-span-3 md:col-span-4">
+    <app-profiledetail [userid]="8" username="Beki"></app-profiledetail>
+  </div>
+</div>

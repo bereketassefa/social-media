@@ -41,12 +41,13 @@ export class UploadTaskComponent implements OnInit {
     this.snapshot = this.task.snapshotChanges().pipe(
       finalize(async () => {
         this.downloadURL = await ref.getDownloadURL().toPromise();
-        //  console.log('The download urls '+this.downloadURL);
+         console.log('The download urls '+this.downloadURL);
         this.fileservice.addUploadedUrl(this.downloadURL);
         this.imageUrl = this.fileservice.getUrls();
         // console.log("URLLLS=>", this.imageUrl);
         // console.log("URLLLS=>", this.fileservice.getUrls());
-        this.imageUploadedEvent.emit(this.fileservice.getUrls());
+        // this.imageUploadedEvent.emit(this.fileservice.getUrls());
+        this.imageUploadedEvent.emit([this.downloadURL]);
       }),
     );
   }

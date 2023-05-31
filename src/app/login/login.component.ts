@@ -37,19 +37,22 @@ export class LoginComponent implements OnInit {
   logUser(){
     this.showLoader = true;
     if(this.checkEmpty(this.username) && this.checkEmpty(this.password)){
-      let body = new URLSearchParams();
-      body.set('userName', this.username);
-      body.set('password', this.password);
+      let body = {
+        userName: this.username,
+        password: this.password
+      }
       let op = {
-        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+        headers: new HttpHeaders().set('Content-Type', 'application/json')
       };
 
 
-      let data = this.http.post("http://localhost:8001/" ,body.toString() ,op)
+      let data = this.http.post("http://localhost:3000/public/login" ,body ,op)
       .toPromise().then(value => {
         this.newObj = value;
-        if(this.newObj.message !== undefined){
-          localStorage.setItem('token' , this.newObj.message);
+        console.log(this.newObj.token);
+        if(this.newObj.token !== undefined){
+          localStorage.setItem('token' , this.newObj.token);
+          localStorage.setItem('userPublicId' , this.newObj.userPublicId);
           this.authService.login()
           this.router.navigate(['home'])
         }

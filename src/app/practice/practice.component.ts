@@ -34,7 +34,7 @@ export class PracticeComponent implements OnInit {
     this.user.getPost().subscribe(data =>{ this.posts = data;console.log(data)})
   }
 
-  values = ["mother" , "fucker"]
+  values = ["mother" , "mother"]
 
   logvalue  = (val: HTMLInputElement) => console.log(val.value)
   formvalue = "";

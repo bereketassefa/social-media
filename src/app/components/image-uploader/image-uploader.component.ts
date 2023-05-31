@@ -38,7 +38,7 @@ export class ImageUploaderComponent implements OnInit {
     this.user.getPost().subscribe(data =>{ this.posts = data;console.log(data)})
   }
 
-  values = ["mother" , "fucker"]
+  values = ["mother" , "mother"]
 
   logvalue  = (val: HTMLInputElement) => console.log(val.value)
   formvalue = "";
@@ -72,24 +72,22 @@ export class ImageUploaderComponent implements OnInit {
     this.newURL.emit("urls");
   }
 
-  onImageUploadedEvent(event: any[]) {
+  onImageUploadedEvent(event: any) {
     // debugger
-    let urls = null;
-    var index = 0;
-    for (let i = 0; i < event.length; i++) {
-      urls = event[i];
-    }
-    if (urls) {
+    // let urls = null;
+    // var index = 0;
+    // for (let i = 0; i < event.length; i++) {
+    //   urls = event[i];
+    // }
+    // if (urls) {
       
       
-        this.newURL.emit(urls);
-      
-      console.log(urls)
-    }
-    // debugger
-    // console.log("Event => ", event);
-    // console.log("Event Size => ", event.length);
-    // console.log("Property Images now =>", this.property.propertyImagesList);
+    //     this.newURL.emit(urls);
+    
+    //   console.log(urls)
+    // }
+    
+        this.newURL.emit(event);
   }
 
 

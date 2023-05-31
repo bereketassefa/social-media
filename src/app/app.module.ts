@@ -23,6 +23,10 @@ import { DropzoneDirective } from './Image-uploads/Drag and Drop/dropzone.direct
 import { DndDirective } from './components/image-uploader/dnd.directive';
 import { ImageUploaderComponent } from './components/image-uploader/image-uploader.component';
 import { PostComponent } from './components/post/post.component';
+import { ProfileComponent } from './Pages/profile/profile.component';
+import { FriendsComponent } from './pages/friends/friends.component';
+import { FriendslistComponent } from './Pages/friendslist/friendslist.component';
+import { ProfiledetailComponent } from './components/profiledetail/profiledetail.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { PostComponent } from './components/post/post.component';
     DropzoneDirective,
     DndDirective,
     ImageUploaderComponent,
-    PostComponent
+    PostComponent,
+    ProfileComponent,
+    FriendsComponent,
+    FriendslistComponent,
+    ProfiledetailComponent
   ],
   imports: [
     BrowserModule,

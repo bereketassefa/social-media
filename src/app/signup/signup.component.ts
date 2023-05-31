@@ -61,14 +61,15 @@ export class SignupComponent implements OnInit {
       };
 
 
-      let data = this.http.post("http://localhost:8001/public" ,
+      let data = this.http.post("http://localhost:3000/public/user" ,
       
       {
         firstName: this.firstName,
         lastName: this.lastName,
         userName: this.email, 
         password: this.password,
-        phoneNumber: this.phoneNumber
+        phoneNumber: this.phoneNumber,
+        cover_image: "https://picsum.photos/200"
       }
       // {
       //   "firstName":"bereket",

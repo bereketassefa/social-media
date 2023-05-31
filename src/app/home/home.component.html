@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <!-- <button (click)="logout()" id="logout">logout</button> -->
-
+<div class="h-[60px] w-full"></div>
 <div class="all">
   <div class="first">
     <app-sidebar></app-sidebar>
@@ -54,15 +54,20 @@
         </div>
       </div>
     </div>
-    <button (click)="logUser()">click me</button>
-    <div class="posts">
-      <app-post></app-post>
-    </div>
-    <div class="posts">
-      <app-post></app-post>
-    </div>
-    <div class="posts">
-      <app-post></app-post>
+
+    <div class="posts" *ngFor="let x of posts">
+      <app-post
+        [content]="x.content"
+        data="{{ convertDate(x.dateCreated) }}"
+        username="{{ x.appUser.userName }}"
+        [images]="x.postImages"
+        imgurl="{{ x.appUser.profileImageUrl }}"
+        (newItemEvent)="showComment()"
+        [likes]="x.postLikes"
+        comments="{{ x.postComments.length }}"
+        id="{{ x.id }}"
+        postPublicId="{{ x.postPublicId }}"
+      ></app-post>
     </div>
   </div>
   <div class="main"></div>
@@ -133,10 +138,95 @@
           [disabled]="post.form.invalid"
           class="btn btn-primary post"
           [disabled]="false"
+          (click)="Sendpost()"
         >
-          submit form
+          Post
         </button>
       </form>
+    </div>
+  </div>
+</div>
+
+<div class="popup" *ngIf="comment">
+  <div class="background" (click)="this.comment = false"></div>
+  <div class="alertBox mt-[5vh] max-h-[90vh] w-[750px]">
+    <div class="header">
+      <div class="a"></div>
+      <div class="title"><b>Comments</b></div>
+      <div class="close" (click)="this.comment = false">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="max-h-[70vh] body relative overflow-y-auto">
+      <app-post
+        content="{{ [postToComment.content] }}"
+        data="{{ [convertDate(postToComment.dateCreated)] }}"
+        username="{{ [postToComment.appUser.userName] }}"
+        [images]="[postToComment.postImages]"
+        imgurl="{{ [postToComment.appUser.profileImageUrl] }}"
+        [likes]="[postToComment.postLikes]"
+        comments="{{ [postToComment.postComments.length] }}"
+        id="{{ [postToComment.id] }}"
+      ></app-post>
+      <div class="commen w-full">
+        <div class="flex flex-row" *ngFor="let x of postToComment.postComments">
+          <img
+            [src]="x.appUser.profileImageUrl"
+            alt=""
+            class="w-[40px] h-[40px] rounded-[50%] mx-1"
+            srcset=""
+          />
+
+          <div class="p-2 rounded bg-gray-100 text-black w-full mb-2">
+            <p class="font-bold text-black py-1 m-0 w-full">
+              {{ x.appUser.firstName }}
+            </p>
+            <p class="w-full p-0">
+              {{ x.content }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="commen w-full py-2 bg-white pt-2 flex flex-row">
+      <img
+        src="http://picsum.photos/40"
+        alt=""
+        class="w-[40px] h-[40px] rounded-[50%] mx-1"
+        srcset=""
+      />
+
+      <div class="rounded bg-gray-100 text-black w-full">
+        <form
+          action=""
+          #com="ngForm"
+          (ngSubmit)="submitComment(postToComment.id)"
+        >
+          <input
+            type="text"
+            placeholder="Write a comment ..."
+            class="w-full p-2 border-0 bg-gray-100 rounded"
+            id=""
+            [(ngModel)]="commentData"
+            #com="ngModel"
+            name="commentData"
+          />
+        </form>
+      </div>
     </div>
   </div>
 </div>
