@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       };
 
 
-      let data = this.http.post("http://localhost:3000/public/login" ,body ,op)
+      let data = this.http.post("https://social-app-test-9dhdw.ondigitalocean.app/public/login" ,body ,op)
       .toPromise().then(value => {
         this.newObj = value;
         console.log(this.newObj.token);

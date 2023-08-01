@@ -4,7 +4,7 @@
     <h2 style="padding-left: 22px">Sign Up</h2>
   </div>
   <form action="" #refer="ngForm" (ngSubmit)="showconsole()">
-    <div class="right form-group">
+    <div class="right">
       <input
         type="text"
         title="s"
@@ -54,7 +54,7 @@
         [(ngModel)]="email"
         id=""
         placeholder="Email"
-        pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         required
       />
       <br />
@@ -85,7 +85,7 @@
         [disabled]="refer.form.invalid"
         (click)="signUser()"
       >
-        Log in
+        Sign up
       </button>
       <hr />
       <input

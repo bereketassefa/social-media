@@ -61,7 +61,7 @@ export class SignupComponent implements OnInit {
       };
 
 
-      let data = this.http.post("http://localhost:3000/public/user" ,
+      let data = this.http.post("https://social-app-test-9dhdw.ondigitalocean.app/public/user" ,
       
       {
         firstName: this.firstName,
